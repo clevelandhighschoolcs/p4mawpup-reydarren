@@ -6,6 +6,12 @@
 import urllib2
 from bs4 import BeautifulSoup
 import time 
+from twilio.rest import Client
+
+account_sid = #Put Account Sid here.
+auth_token = #Put Auth Token Here
+twilio_phone_number = #Put Twilio phone number here
+my_phone_number = #
 
 
 
@@ -34,7 +40,13 @@ while True:
         print "There has not been a change"
         price = price_new
     else:
-        print "There has been a change!"
+       body = "There has been a change!"
+		client = Client(account_sid, auth_token)
+		client.messages.create(
+			body=body,
+			to=my_phone_number,
+			from_=twilio_phone_number
+		)
         break
     time.sleep(5)
     
