@@ -13,7 +13,9 @@ auth_token = #Put Auth Token Here
 twilio_phone_number = #Put Twilio phone number here
 my_phone_number = #
 
-
+# add prompt for frequency 
+print("how often would you like this to run in seconds?")
+frequency = raw_input("+" "frequency")
 
 # specify the url
 quote_page = 'http://www.bloomberg.com/quote/SPX:IND'
@@ -48,7 +50,7 @@ while True:
 			from_=twilio_phone_number
 		)
         break
-    time.sleep(5)
+    time.sleep(frequency)# offer parameters 
     
     
  
